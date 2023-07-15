@@ -21,6 +21,5 @@ You will have to install the appropriate packages as defined in "requirements.tx
 * **substrate**: (*str) The name of the substrate as defined in "substrate_list.json" 
 * __**params__: Additional keyword arguments for the parameters used by the model defining the refractive index profile  
 
->When invoked, the class will return 3 plots: The refractive index profile, Psi and Delta plotted between an angle of incidence of 0 to 90 \^{circ} degrees, and both the imaginary and real parts of rho. 
+When invoked, the class will return 3 plots: The refractive index profile, $\Psi$ and $\Delta$ plotted between an angle of incidence of 0 to 90 degrees, and both the imaginary and real parts of $\rho-\rho_o$
 
-$\Delta$
