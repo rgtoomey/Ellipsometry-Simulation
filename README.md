@@ -34,8 +34,6 @@ When invoked, the class will return 3 plots: The refractive index profile, $\Psi
 
 ## **Simulation** class Methods ##
 
-
-
 Simulation.**get_info**()
 
 Simulation.**show_ri_profile**()
