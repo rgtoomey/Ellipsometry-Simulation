@@ -4,6 +4,7 @@ import numpy as np
 import ri_models
 import json
 
+
 with open("substrate_list.json", 'r') as refractive_index_list:
     refractive_index_list = json.load(refractive_index_list)
 
@@ -11,11 +12,11 @@ name_of_substrates_list = refractive_index_list.keys()
 
 class Simulation:
 
-    def __init__(self,ri_model,n_i,substrate,**params):
+    def __init__(self,ri_model,n_i,substrate):
         self.ri_model = ri_model
         self.substrate = substrate
         self.n_i = n_i
-        self.params = params
+        self.params = ri_models.get_inputs(ri_model)
         self.angles = [*range(1,91,1)]
         self.angles[-1] = 89.999
         self.wavelength = 632.8
@@ -321,14 +322,14 @@ class Simulation:
 
     def d_rho_weak_t(self,**kwargs):
         num_terms = 100
-        e_i, e_t, k, small_q_i, small_q_t, big_q_i, big_q_t, rs_0, rp_0 = self.fresnel_terms()
+        e_i, e_t, k, small_q_i, small_q_t, big_q_i, big_q_t, rs_0, rp_0 = self.fresnel_terms(**kwargs)
 
         d_rho = 0
 
         for term in range(1,num_terms+1):
             pf = (-2*complex(0,1))**term/np.math.factorial(term-1)
             fresnel_terms = big_q_i*big_q_t**(term-1.0)*(k**2/(e_i*e_t))*e_t**(term-2.0)*(e_i-e_t)/(big_q_i+big_q_t)**2
-            moment = self.moment_t(term-1)
+            moment = self.moment_t(term-1,**kwargs)
             d_rho = pf*fresnel_terms*moment/rs_0 + d_rho
 
         return d_rho

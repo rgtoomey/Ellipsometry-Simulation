@@ -1,6 +1,17 @@
 import numpy as np
+import inspect
 
 tanh = np.tanh
+
+def get_inputs(profile_name):
+    model = globals()[profile_name]
+    keys = list(inspect.signature(model).parameters.keys())
+    params = {}
+    for key in keys:
+        value = input(" Input value for " + key)
+        params.update({key: float(value)})
+    return params
+
 
 def linear_profile(n_avg,width,dn):
     if width == 0:
@@ -28,15 +39,7 @@ def tanh_profile(n_avg,width,dn,sigma):
         n_profile = n_avg + dn/2 * tanh(4*z_modified*width/sigma)
     return z_profile, n_profile
 
-
-def single(n_avg, width):
-    z_profile = np.array([0,width],dtype=float)
-    n_profile = np.copy(z_profile)
-    n_profile[0] = n_avg
-    n_profile[1] = n_avg
-    return z_profile,n_profile
-
-def single_weak(n_avg, width):
+def single_profile(n_avg, width):
     if width == 0:
         z_profile = np.array([])
         n_profile = np.array([])
