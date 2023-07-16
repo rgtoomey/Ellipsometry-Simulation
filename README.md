@@ -24,9 +24,8 @@ You will have to install the appropriate packages as defined in "requirements.tx
 * **ri_model**: (*str*) The name of refractive index profile as defined in "ri_models.py"
 * **n_i**: The refractive index of the incident medium
 * **substrate**: (*str*) The name of the substrate as defined in "substrate_list.json" 
-* __**params__: Additional keyword arguments for the parameters used by the model defining the refractive index profile  
 
-When invoked, the class will return 3 plots: The refractive index profile, $\Psi$ and $\Delta$ plotted between an angle of incidence of 0 to 90 degrees, and both the imaginary and real parts of $\rho-\rho_o$ as based on the Abeles Matrix numerical method
+When invoked, the class will ask for the inputs for the ri_model and return 3 plots: The refractive index profile, $\Psi$ and $\Delta$ plotted between an angle of incidence of 0 to 90 degrees, and both the imaginary and real parts of $\rho-\rho_o$ as based on the Abeles Matrix numerical method
 
 ### Example ###
 
@@ -112,8 +111,6 @@ ___
 Simulation.**uncertainity**(self,type = "coating",**kwargs)
 
 **Returns**
-
-
 
 
 ## **Simulation** class Variables ##
