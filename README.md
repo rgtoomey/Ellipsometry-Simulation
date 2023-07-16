@@ -14,6 +14,7 @@ To run the program:
 `import rho_simulation_class as Elli`
 
 You will have to install the appropriate packages as defined in "requirements.txt" 
+The version of Python is 3.9.6
 
 
 ## The **Simulation** Class
@@ -29,7 +30,7 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 ### Example ###
 
-`output = Elli.Simulation("tanh_profile",1.0,"silicon",n_avg = 1.5,width = 40, dn = 0.02, sigma = 5)`
+`output = Elli.Simulation("tanh_profile",1.0,"silicon")`
 
 ## **Simulation** class Methods ##
 
