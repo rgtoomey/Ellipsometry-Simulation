@@ -34,7 +34,7 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 You will be asked through a dialogue prompt to enter the parameters for the ri_model chosen
 
-Three plots will be outputed:
+Three plots will be displayed that correspond to the ri_model. These represent the Abeles Matrix Numerical Simulation of the ri_model. 
 
 1. <img alt="ri_profile" height="150" src="/Examples/Substrate_silicon.png" width="150"/>
 2. <img alt="psi_delta" height="150" src="/Examples/psi_delta.png" width="150"/>
