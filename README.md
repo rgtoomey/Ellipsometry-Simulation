@@ -34,7 +34,7 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 You will be asked by a dialogue prompt to enter the parameters for the ri_model chosen
 
-![Example_1](/Examples/Substrate_silicon.png)
+<img alt="Example_1" height="100" src="/Examples/Substrate_silicon.png" width="100"/>
 
 ## **Simulation** class Methods ##
 
