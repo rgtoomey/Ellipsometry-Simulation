@@ -36,9 +36,9 @@ You will be asked through a dialogue prompt to enter the parameters for the ri_m
 
 Three plots will be outputed:
 
-<img alt="ri_profile" height="150" src="/Examples/Substrate_silicon.png" width="150"/>
-<img alt="psi_delta" height="150" src="/Examples/psi_delta.png" width="150"/>
-<img alt="rho" height="150" src="/Examples/rho.png" width="150"/>
+1. <img alt="ri_profile" height="150" src="/Examples/Substrate_silicon.png" width="150"/>
+2. <img alt="psi_delta" height="150" src="/Examples/psi_delta.png" width="150"/>
+3. <img alt="rho2" height="150" src="/Examples/rho2.png" width="150"/>
 
 ## **Simulation** class Methods ##
 
