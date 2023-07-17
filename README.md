@@ -40,8 +40,9 @@ Three plots will be displayed that correspond to the ri_model. These represent t
 2. <img alt="psi_delta" height="150" src="/Examples/psi_delta.png" width="150"/>
 3. <img alt="rho2" height="150" src="/Examples/rho2.png" width="150"/>
 
-## **Simulation** class Methods ##
+___
 
+## **Simulation** class Methods ##
 
 Simulation.**get_info**()
 * Returns a printout of the ri_model used, wavelength, substrate, and a dictionary of the parameters used for the ri_model
@@ -61,12 +62,14 @@ ___
 Simulation.**show_rho**(_name_of_comparison="none", **kwargs_)
 
 **Returns**
-* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen._
+* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen.
 
 **Parameters**
 * **name_of_comparison** Can select "tf" for the thin film approximation or "weak_t" for the weak contrast approximation
 * **kwargs**
   * If a d_psi and a d_delta are provided, the confidence limits will be changed from the default to the given values
+
+
 
 ___
 
