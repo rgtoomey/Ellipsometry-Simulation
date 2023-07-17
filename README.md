@@ -32,9 +32,13 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 `output = Elli.Simulation("tanh_profile",1.0,"silicon")`
 
-You will be asked by a dialogue prompt to enter the parameters for the ri_model chosen
+You will be asked through a dialogue prompt to enter the parameters for the ri_model chosen
 
-<img alt="Example_1" height="100" src="/Examples/Substrate_silicon.png" width="100"/>
+Three plots will be outputed:
+
+<img alt="ri_profile" height="150" src="/Examples/Substrate_silicon.png" width="150"/>
+<img alt="psi_delta" height="150" src="/Examples/psi_delta.png" width="150"/>
+<img alt="rho" height="150" src="/Examples/rho.png" width="150"/>
 
 ## **Simulation** class Methods ##
 
