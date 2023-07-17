@@ -29,11 +29,11 @@ class Simulation:
         print(self.wavelength)
         print(self.substrate)
         print(self.params)
-        pass
 
 
     def reset(self):
-        pass
+        self.angles = [*range(1,91,1)]
+        self.angles[-1] = 89.999
 
 
     def show_ri_profile(self):
@@ -98,9 +98,9 @@ class Simulation:
         if name_of_comparison == "none":
             pass
         elif name_of_comparison == "tf":
-            rho_eval_analytic = self.d_rho_tf()
+            rho_eval_analytic = self.d_rho_tf(**kwargs)
         elif name_of_comparison == "weak_t":
-            rho_eval_analytic = self.d_rho_weak_t()
+            rho_eval_analytic = self.d_rho_weak_t(**kwargs)
         else:
             return print("There is an error!")
 
@@ -239,6 +239,7 @@ class Simulation:
     def fresnel_terms(self,**kwargs):
         angle_in_radians = elli.to_angle_in_radians(self.angles)
         wn = elli.get_wavenumber(self.wavelength)
+
         n_t = elli.to_n_complex(self.n_transmitted(**kwargs)[0],self.n_transmitted(**kwargs)[1])
 
         e_i = elli.to_dielectric(self.n_i)
@@ -321,7 +322,12 @@ class Simulation:
 
 
     def d_rho_weak_t(self,**kwargs):
-        num_terms = 100
+
+        if 'orders' in kwargs:
+            num_terms = kwargs.get('orders')
+        else:
+            num_terms = 100
+
         e_i, e_t, k, small_q_i, small_q_t, big_q_i, big_q_t, rs_0, rp_0 = self.fresnel_terms(**kwargs)
 
         d_rho = 0
@@ -335,7 +341,7 @@ class Simulation:
         return d_rho
 
 
-    def vary(self,param_name,value_low,value_high,num_points,angle,name_of_comparison = 'none'):
+    def vary(self,param_name,value_low,value_high,num_points,angle,name_of_comparison = 'none',**kwargs):
         fig = plt.figure(dpi=300, layout='constrained',figsize=(5,5))
         axs = fig.subplots()
         axs.tick_params(axis='both', labelsize=12)

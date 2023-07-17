@@ -11,9 +11,9 @@ Two types of tools are offered: A class called **Simulation** and a function cal
 
 To run the program:
 
-`import rho_simulation_class as Elli`
+  `import rho_simulation_class as Elli`
 
-You will have to install the appropriate packages as defined in "requirements.txt" 
+You will have to install the appropriate packages as defined in "requirements.txt". 
 The version of Python is 3.9.6
 
 
@@ -26,7 +26,7 @@ The version of Python is 3.9.6
 * **n_i**: The refractive index of the incident medium
 * **substrate**: (*str*) The name of the substrate as defined in "substrate_list.json" 
 
-When invoked, the class will ask for the inputs for the ri_model and return 3 plots: The refractive index profile, $\Psi$ and $\Delta$ plotted between an angle of incidence of 0 to 90 degrees, and both the imaginary and real parts of $\rho-\rho_o$ as based on the Abeles Matrix numerical method
+When invoked, the class will ask for the inputs for the ri_model and return 3 plots: The refractive index profile, $\Psi$ and $\Delta$ plotted between an angle of incidence of 0 to 90 degrees, and both the imaginary and real parts of $\rho-\rho_o$ as based on the Abeles Matrix numerical method. The default wavelength is 632.8 nm.
 
 ### Example ###
 
@@ -34,10 +34,11 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 ## **Simulation** class Methods ##
 
-Note: For methods that take **kwargs as a parameter, the following are used. All others will be ignored.
-* **ri_over_ride**: Overrides the refractive index of the substrate as given in "substrate_list.json." To use `ri_over_ride = [value_real,value_imag]`
-* **d_psi**: The default uncertainity or precision in the measurement of psi is 0.01 degrees. To change this default use `d_psi = value`
-* **d_delta**: The uncertainity or precision in the measurement of delta is 0.01 degrees. To change this default use `d_delta = value`
+Note: For methods that take _**kwargs_ as a parameter, the following keys are used. All others will be ignored.
+* **d_psi**: The default uncertainity or precision in the measurement of psi is 0.01 degrees. 
+  * To override this default: `d_psi = value`
+* **d_delta**: The uncertainity or precision in the measurement of delta is 0.01 degrees. 
+  * To override this default: `d_delta = value`
 
 ___
 
@@ -80,7 +81,7 @@ Simulation.**rho**(_type = "coating",**kwargs_)
 **Returns**
 * A complex numpy array of rho based on the Abeles Matrix numerical method.
 
-**Paramaters**
+**Parameters**
 * **type**: Default is "coating" which returns $\rho$. 
   * If type="no_coating", the method returns $\rho_o$,
   * If type="difference", the method returns $\rho-\rho_o$
@@ -98,21 +99,30 @@ Simulation.**psi**(_with_coating = "yes",**kwargs_)
 
 ___
 
-Simulation.**delta**(_with_coating = "yes",**kwargs_)
+Simulation.**delta**(_with_coating = "yes", **kwargs_)
 
 **Returns**
 * A numpy array of delta based on the Abeles Matrix numerical method.
 
-**Paramaters**
+**Parameters**
 * **with_coating**: Default is "yes"  
   * If with_coating="no", the method returns delta just for the interface between the incident medium and the substrate
 
 ___
 
-Simulation.**uncertainity**(self,type = "coating",**kwargs)
+Simulation.**d_rho_tf**(_**kwargs_):
+
+___
+
+Simulation.**d_rho_weak_t**(_**kwargs_):
+
+___
+
+Simulation.**uncertainity**(_self,type = "coating",**kwargs_)
 
 **Returns**
 
+___
 
 ## **Simulation** class Variables ##
 
@@ -123,7 +133,8 @@ Simulation.**uncertainity**(self,type = "coating",**kwargs)
 * **substrate**
   * String containing the name of the substrate as found in  "substrate_list.json"
 * **params**
-  * Dictionary of parameter names and their values used in the ri_model
+  * Dictionary of parameter names and their values used in the ri_model.
+  * To change a parameter value use: `Simulation.params.update({param_name : value})`
 * **angles**
   * Numpy array of angles of incidence to be used in the simulation
   * Default is an array from 1 to 90 with a step-size of 1 degree. Note that the final value is 89.999 (not 90) to avoid division errors in the simulation
