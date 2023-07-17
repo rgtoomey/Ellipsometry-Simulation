@@ -32,15 +32,12 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 `output = Elli.Simulation("tanh_profile",1.0,"silicon")`
 
+You will be asked by a dialogue prompt to enter the parameters for the ri_model chosen
+
+![Example_1](/Examples/Substrate_silicon.png)
+
 ## **Simulation** class Methods ##
 
-Note: For methods that take _**kwargs_ as a parameter, the following keys are used. All others will be ignored.
-* **d_psi**: The default uncertainity or precision in the measurement of psi is 0.01 degrees. 
-  * To override this default: `d_psi = value`
-* **d_delta**: The uncertainity or precision in the measurement of delta is 0.01 degrees. 
-  * To override this default: `d_delta = value`
-
-___
 
 Simulation.**get_info**()
 * Returns a printout of the ri_model used, wavelength, substrate, and a dictionary of the parameters used for the ri_model
