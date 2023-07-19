@@ -71,6 +71,7 @@ Simulation.**show_rho**(_name_of_comparison="none", **kwargs_)
   * To select the number of terms (or order) of the weak contrast approximation, use 'orders' = *num*
 
 **Example Plot**
+
 <img alt="tf_simulation" height="150" src="/Examples/tf_simulation.png" width="150"/>
 
 ___
