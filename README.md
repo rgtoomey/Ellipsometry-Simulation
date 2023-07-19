@@ -70,7 +70,9 @@ Simulation.**show_rho**(_name_of_comparison="none", **kwargs_)
   * If a d_psi and a d_delta are provided, the confidence limits will be changed from the default (0.01) to the given values
   * To select the number of terms (or order) of the weak contrast approximation, use 'orders' = *num*
 
-**Example Plot**
+**Example**
+
+`output.showrho(name_of_comparision = 'tf')`
 
 <img alt="tf_simulation" height="150" src="/Examples/tf_simulation.png" width="150"/>
 
@@ -136,8 +138,26 @@ ___
 
 Simulation.**vary**(_param_name,value_low,value_high,num_points,angle,name_of_comparison = 'none',**kwargs_)
 
+Method that varies a parameter and returns the appropriate plot. 
+
 **Returns**
-* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen. If an approximation model is chosen, the term "analytic" i
+* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen. If an approximation model is chosen, the term "analytic" is used in the legend.
+
+**Parameters**
+* **param_name**: Name of parameter to vary in the ri_model. Note that the refractive index of the substrate can also be varied. Use param_name = 'n_t'.
+* **value_low**: The lower value (_float_) of the parameter being varied. 
+* **value_high**: The upper value (_float_) of the parameter being varied.
+* **num_points**: The number of points (_int_) to include in the variation.
+* **angle**: The angle of incidence to use
+* **name_of_comparison** Select "tf" for the thin film approximation or "weak_t" for the weak contrast approximation
+* **kwargs**: To select the number of terms (or order) of the weak contrast approximation, use 'orders' = *num*
+
+**Example**
+
+`output.vary('n_avg',1.4,1.5,20,name_of_comparison = 'tf')`
+
+<img alt="variation" height="150" src="/Examples/variation.png" width="150"/>
+
 
 ___
 
