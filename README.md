@@ -72,7 +72,7 @@ Simulation.**show_rho**(_name_of_comparison="none", **kwargs_)
 
 **Example**
 
-`output.showrho(name_of_comparision = 'tf')`
+`output.show_rho(name_of_comparision = 'tf')`
 
 <img alt="tf_simulation" height="150" src="/Examples/tf_simulation.png" width="150"/>
 
