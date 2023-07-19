@@ -30,7 +30,7 @@ When invoked, the class will ask for the inputs for the ri_model and return 3 pl
 
 ### Example ###
 
-`output = Elli.Simulation("tanh_profile",1.0,"silicon")`
+`elli_simulation = Elli.Simulation("tanh_profile",1.0,"silicon")`
 
 You will be asked through a dialogue prompt to enter the parameters for the ri_model chosen
 
@@ -72,7 +72,7 @@ Simulation.**show_rho**(_name_of_comparison="none", **kwargs_)
 
 **Example**
 
-`output.show_rho(name_of_comparision = 'tf')`
+`elli_simulation.show_rho(name_of_comparison = 'tf')`
 
 <img alt="tf_simulation" height="150" src="/Examples/tf_simulation.png" width="150"/>
 
@@ -154,7 +154,7 @@ Method that varies a parameter and returns the appropriate plot.
 
 **Example**
 
-`output.vary('n_avg',1.4,1.5,20,name_of_comparison = 'tf')`
+`elli_simulation.vary('n_avg',1.4,1.5,20,70,name_of_comparison = 'tf')`
 
 <img alt="variation" height="150" src="/Examples/variation.png" width="150"/>
 
