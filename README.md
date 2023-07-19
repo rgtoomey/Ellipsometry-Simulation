@@ -19,7 +19,7 @@ The version of Python is 3.9.6
 
 ## The **Simulation** Class
 
-*class* **Simulation**(*ri_model*,*n_i*,*substrate*,_**params_)
+*class* **Simulation**(*ri_model*,*n_i*,*substrate*)
 
 **Parameters**
 * **ri_model**: (*str*) The name of refractive index profile as defined in "ri_models.py"
@@ -62,21 +62,23 @@ ___
 Simulation.**show_rho**(_name_of_comparison="none", **kwargs_)
 
 **Returns**
-* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen.
+* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen. If an approximation model is chosen, the term "analytic" is used in the legend.
 
 **Parameters**
 * **name_of_comparison** Can select "tf" for the thin film approximation or "weak_t" for the weak contrast approximation
 * **kwargs**
-  * If a d_psi and a d_delta are provided, the confidence limits will be changed from the default to the given values
+  * If a d_psi and a d_delta are provided, the confidence limits will be changed from the default (0.01) to the given values
+  * To select the number of terms (or order) of the weak contrast approximation, use 'orders' = *num*
 
-
+**Example Plot**
+<img alt="tf_simulation" height="150" src="/Examples/tf_simulation.png" width="150"/>
 
 ___
 
 Simulation.**ri_profile**()
 
 **Returns**
-* Two numpy arrays: position(in nm) and refractive index corresponding the the ri_model
+* Two numpy arrays: position(in nm) and refractive index corresponding to the ri_model
 
 ___
 
@@ -114,17 +116,27 @@ Simulation.**delta**(_with_coating = "yes", **kwargs_)
 
 ___
 
-Simulation.**d_rho_tf**(_**kwargs_):
-
-___
-
-Simulation.**d_rho_weak_t**(_**kwargs_):
-
-___
-
-Simulation.**uncertainity**(_self,type = "coating",**kwargs_)
+Simulation.**d_rho_tf**(_**kwargs_)
 
 **Returns**
+* A complex numpy array of rho based on the thin film approximation
+
+___
+
+Simulation.**d_rho_weak_t**(_**kwargs_)
+
+**Returns**
+* A complex numpy array of rho based on the weak contrast approximation
+
+**Parameters**
+* To select the number of terms (or order) of the weak contrast approximation, use 'orders' = *num*
+
+___
+
+Simulation.**vary**(_param_name,value_low,value_high,num_points,angle,name_of_comparison = 'none',**kwargs_)
+
+**Returns**
+* A plot based on the imaginary and real parts of $\rho-\rho_o$ for the Abeles Matrix numerical method (solid lines), confidence bars, and the approximation model (dashed lines) if chosen. If an approximation model is chosen, the term "analytic" i
 
 ___
 
